@@ -1,0 +1,59 @@
+diabolical ===================================================
+diabolical BrainRot Gen Z — Test Program
+diabolical Author: Joseph Peter Petlyn Bailey
+diabolical Date: February 28 2026
+diabolical ===================================================
+
+cook "stdio"
+
+lit MAX 100
+lit APP "BrainRot Gen Z v1.0"
+
+put the fires in the bag {
+
+    diabolical variables
+    gooner jit score = 0;
+    baddie jit name = "";
+    goon jit isAlive = W;
+    slime jit ratio = 1.5;
+
+    diabolical input
+    syabu "enter your name slime:";
+    gumit name;
+
+    syabu "enter your score no cap:";
+    gumit score;
+
+    diabolical decision
+    yn score gyatt 90 {
+        syabu "W rank fr no cap";
+    }
+    fynshyt score gyatt 70 {
+        syabu "decent cook harder";
+    }
+    opps {
+        syabu "L rank get your bag up";
+    }
+
+    diabolical while loop
+    gooner jit count = 0;
+    risky shoot count L 3 {
+        syabu "grinding...";
+        fap count;
+    }
+
+    diabolical for loop
+    slide on em (gooner jit i = 0; i L 5; fap i) {
+        syabu i;
+    }
+
+    diabolical do while loop
+    gooner jit x = 0;
+    say less {
+        syabu x;
+        fap x;
+    } risky shoot x L 3;
+
+    syabu "program done green";
+    cooked 0;
+}
