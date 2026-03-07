@@ -2,24 +2,24 @@
 # Author: Joseph Peter Petlyn Bailey
 # Date: February 28 2026
 
-# compiler
-CC = gcc
+CC     = gcc
+CFLAGS = -Wall -Wpedantic -std=c11 -g
 
-# flags — show all warnings, C99 standard, include debug symbols
-CFLAGS = -Wall -Wextra -std=c99 -g
+SRC    = src/main.c src/lexer.c src/parser.c src/evaluator.c
+TEST   = src/test_lexer.c src/lexer.c
 
-# all source files
-SRC = src/main.c src/lexer.c src/parser.c src/evaluator.c
+TARGET      = brainrot
+TEST_TARGET = test_lexer
 
-# output binary name
-TARGET = brainrot
-
-# default rule — builds the compiler
 all: $(TARGET)
 
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
 
-# clean — removes the compiled binary
+test: $(TEST_TARGET)
+
+$(TEST_TARGET): $(TEST)
+	$(CC) $(CFLAGS) -o $(TEST_TARGET) $(TEST)
+
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGET) $(TEST_TARGET)
