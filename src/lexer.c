@@ -108,16 +108,21 @@ Token *tokenize(const char *source, int *token_count) {
 
         /* ---- numbers ---- */
         if (isdigit(source[i])) {
-            int start = i;
-            while (i < len && isdigit(source[i])) i++;
-            int num_len = i - start;
-            char *num = malloc(num_len + 1);
-            strncpy(num, source + start, num_len);
-            num[num_len] = '\0';
-            tokens[count++] = make_token(TOKEN_NUMBER, num, line);
-            free(num);
-            continue;
-        }
+    int start = i;
+    while (i < len && isdigit(source[i])) i++;
+    /* handle decimal point for slime (float) */
+    if (i < len && source[i] == '.') {
+        i++;
+        while (i < len && isdigit(source[i])) i++;
+    }
+    int num_len = i - start;
+    char *num = malloc(num_len + 1);
+    strncpy(num, source + start, num_len);
+    num[num_len] = '\0';
+    tokens[count++] = make_token(TOKEN_NUMBER, num, line);
+    free(num);
+    continue;
+}
 
         /* ---- strings ---- */
         if (source[i] == '"') {
