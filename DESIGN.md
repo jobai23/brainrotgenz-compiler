@@ -17,7 +17,7 @@ no copying, every line understood.
 
 ## Future Goal
 
-Future implementations will help people learn different programming
+Future implementations will help people learn different programming\
 languages, especially the most used ones in the industry. This project
 will be open source — anyone can contribute and make it better.
 

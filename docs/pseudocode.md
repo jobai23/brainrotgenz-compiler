@@ -1,0 +1,1 @@
+/** day 1 describe, pesudocode and algorithm

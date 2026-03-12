@@ -3,7 +3,7 @@
 # Date: February 28 2026
 
 CC     = gcc
-CFLAGS = -Wall -Wpedantic -std=c11 -g
+CFLAGS = -Wall -std=c11 -g
 
 SRC    = src/main.c src/lexer.c src/parser.c src/evaluator.c
 TEST   = src/test_lexer.c src/lexer.c
