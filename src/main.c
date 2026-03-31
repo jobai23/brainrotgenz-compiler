@@ -3,7 +3,7 @@
    Author: Joseph Peter Petlyn Bailey
    File: main.c
    Purpose: Entry point — reads .brainrot file
-            runs lexer then parser
+            runs lexer, parser, evaluator
    ================================================ */
 
 #include <stdio.h>
@@ -11,6 +11,7 @@
 #include <string.h>
 #include "lexer.h"
 #include "parser.h"
+#include "evaluator.h"
 
 /* ------------------------------------------------
    READ FILE
@@ -93,13 +94,15 @@ int main(int argc, char *argv[]) {
     printf("=== AST ===\n");
     print_ast(ast, 0);
 
+    /* ---- PHASE 3: EVALUATOR ---- */
+    printf("\n=== RUNNING BRAINROT PROGRAM ===\n\n");
+    run(ast);
+
     /* ---- CLEAN UP ---- */
     free_ast(ast);
     free_tokens(tokens, token_count);
     free(source);
 
-    printf("\nparser phase complete\n");
-    printf("green\n");
-
+    printf("\ngreen — program finished\n");
     return 0;
 }
