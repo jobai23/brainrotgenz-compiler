@@ -168,6 +168,21 @@ static ASTNode *parse_expression(void) {
 }
 
 /* ------------------------------------------------
+   PARSE ASSIGNMENT
+   sum = sum + i;
+   ------------------------------------------------ */
+static ASTNode *parse_assign(void) {
+    ASTNode *node = make_node(NODE_ASSIGN);
+    node->value = strdup(advance()->value);
+    expect(TOKEN_EQUALS, "=");
+    node->right = parse_expression();
+    expect(TOKEN_SEMICOLON, ";");
+    return node;
+}
+
+
+
+/* ------------------------------------------------
    PARSE BLOCK  { statements }
    ------------------------------------------------ */
 static ASTNode *parse_block(void) {
@@ -181,6 +196,10 @@ static ASTNode *parse_block(void) {
 
     expect(TOKEN_RBRACE, "}");
     return block;
+
+
+
+    
 }
 
 /* ------------------------------------------------
@@ -210,8 +229,8 @@ static ASTNode *parse_var_decl(void) {
 
 /* ------------------------------------------------
    PARSE PRINT
-   syabu "hello";
-   syabu x;
+   sybau "hello";
+   sybau x;
    ------------------------------------------------ */
 static ASTNode *parse_print(void) {
     ASTNode *node = make_node(NODE_PRINT);
@@ -223,7 +242,7 @@ static ASTNode *parse_print(void) {
 
 /* ------------------------------------------------
    PARSE INPUT
-   gumit name;
+   gumite name;
    ------------------------------------------------ */
 static ASTNode *parse_input(void) {
     ASTNode *node = make_node(NODE_INPUT);
@@ -372,10 +391,10 @@ static ASTNode *parse_statement(void) {
     }
 
     /* print */
-    if (check(TOKEN_SYABU))       return parse_print();
+    if (check(TOKEN_SYBAU))       return parse_print();
 
     /* input */
-    if (check(TOKEN_GUMIT))       return parse_input();
+    if (check(TOKEN_GUMITTE))       return parse_input();
 
     /* return */
     if (check(TOKEN_COOKED))      return parse_return();
@@ -394,6 +413,17 @@ static ASTNode *parse_statement(void) {
 
     /* do-while */
     if (check(TOKEN_SAY_LESS))    return parse_dowhile();
+
+    /* assignment — identifier = expression */
+    if (check(TOKEN_IDENTIFIER)) {
+        int saved = current;
+        advance();
+        if (check(TOKEN_EQUALS)) {
+            current = saved;
+            return parse_assign();
+        }
+        current = saved;
+    }
 
     /* skip unknown tokens with a warning */
     fprintf(stderr, "warning: skipping unexpected token '%s' on line %d\n",
@@ -428,6 +458,7 @@ void print_ast(ASTNode *node, int depth) {
         case NODE_BINOP:      printf("[BINOP] %s\n", node->op);               break;
         case NODE_LITERAL:    printf("[LITERAL] %s\n", node->value);          break;
         case NODE_IDENTIFIER: printf("[IDENTIFIER] %s\n", node->value);       break;
+        case NODE_ASSIGN: printf("[ASSIGN] %s\n", node->value);               break;
         default:              printf("[UNKNOWN]\n");                          break;
     }
 
@@ -484,20 +515,22 @@ ASTNode *parse(Token *tok, int count) {
    /* skip cook and lit at the top — handled later */
     while (check(TOKEN_COOK) || check(TOKEN_LIT)) {
         advance(); /* consume cook or lit */
-        /* consume all tokens until next cook, lit, put the fires, or EOF */
+        /* consume all tokens until next cook, lit, put the fries, or EOF */
         while (!check(TOKEN_COOK) && !check(TOKEN_LIT) &&
-               !check(TOKEN_PUT_THE_FIRES) && !check(TOKEN_EOF)) {
+               !check(TOKEN_PUT_THE_FRIES) && !check(TOKEN_EOF)) {
             advance();
         }
     }
 
-    /* expect put the fires in the bag */
-    if (check(TOKEN_PUT_THE_FIRES)) {
-        advance(); /* consume put the fires in the bag */
+    /* expect put the fries in the bag */
+    if (check(TOKEN_PUT_THE_FRIES)) {
+        advance(); /* consume put the fries in the bag */
         ASTNode *block = parse_block();
         add_child(program, block);
     } else {
-        fprintf(stderr, "parse error: expected 'put the fires in the bag'\n");
+        fprintf(stderr, "\nbrainrot error on line %d: expected 'put the fries in the bag'\n", peek()->line);
+        fprintf(stderr, "hint: your program must start with 'put the fries in the bag {'\n");
+        fprintf(stderr, "      you wrote '%s' instead\n\n", peek()->value);
         exit(1);
     }
 

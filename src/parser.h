@@ -20,11 +20,13 @@ typedef enum {
 
     /* statements */
     NODE_VAR_DECL,      /* gooner jit x = 0;              */
-    NODE_PRINT,         /* syabu "hello";                 */
-    NODE_INPUT,         /* gumit name;                    */
+    NODE_PRINT,         /* sybau "hello";                 */
+    NODE_INPUT,         /* gumitte name;                    */
     NODE_RETURN,        /* cooked 0;                      */
-    NODE_INCREMENT,     /* fap x;                         */
-    NODE_BLOCK,         /* { ... }                        */
+    NODE_INCREMENT,     /* fap x;    */
+    NODE_ASSIGN,        /*           */
+    NODE_BLOCK,        /*                    */                                
+   
 
     /* decision */
     NODE_IF,            /* yn condition { }               */

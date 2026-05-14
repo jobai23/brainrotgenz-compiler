@@ -6,45 +6,45 @@ cook "stdio"
 lit MAX 100
 lit APP "BrainRot Gen Z v1.0"
 
-put the fires in the bag {
+put the fries in the bag {
 
     gooner jit score = 0;
     baddie jit name = "";
     goon jit isAlive = W;
     slime jit ratio = 1.5;
 
-    syabu "enter your name slime:";
-    gumit name;
+    sybau "enter your name slime:";
+    gumitte name;
 
-    syabu "enter your score no cap:";
-    gumit score;
+    sybau "enter your score no cap:";
+    gumitte score;
 
     yn score gyatt 90 {
-        syabu "W rank fr no cap";
+        sybau "W rank fr no cap";
     }
     fynshyt score gyatt 70 {
-        syabu "decent cook harder";
+        sybau "decent cook harder";
     }
     opps {
-        syabu "L rank get your bag up";
+        sybau "L rank get your bag up";
     }
 
     gooner jit count = 0;
     risky shoot count L 3 {
-        syabu "grinding...";
+        sybau "grinding...";
         fap count;
     }
 
     slide on em (gooner jit i = 0; i L 5; fap i) {
-        syabu i;
+        sybau i;
     }
 
     gooner jit x = 0;
     say less {
-        syabu x;
+        sybau x;
         fap x;
     } risky shoot x L 3;
 
-    syabu "program done green";
+    sybau "program done green";
     cooked 0;
 }

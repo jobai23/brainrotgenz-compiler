@@ -59,7 +59,8 @@ Value env_get(Environment *env, const char *name) {
         if (strcmp(env->entries[i].name, name) == 0)
             return env->entries[i].value;
     }
-    fprintf(stderr, "runtime error: undefined variable '%s'\n", name);
+    fprintf(stderr, "\nbrainrot error: variable '%s' is not defined\n", name);
+    fprintf(stderr, "hint: did you forget 'gooner jit %s = 0;' ?\n\n", name);
     exit(1);
 }
 
@@ -114,8 +115,12 @@ static Value eval_binop(const char *op, Value left, Value right) {
         return is_float ? make_float(l - r) : make_int((int)(l - r));
     if (strcmp(op, "*") == 0)
         return is_float ? make_float(l * r) : make_int((int)(l * r));
-    if (strcmp(op, "/") == 0) {
-        if (r == 0) { fprintf(stderr, "runtime error: division by zero\n"); exit(1); }
+   if (strcmp(op, "/") == 0) {
+        if (r == 0) {
+            fprintf(stderr, "\nbrainrot error: cannot divide by zero\n");
+            fprintf(stderr, "hint: check your denominator value\n\n");
+            exit(1);
+        }
         return is_float ? make_float(l / r) : make_int((int)(l / r));
     }
     if (strcmp(op, "gyatt")  == 0) return make_bool(l >= r);
@@ -193,6 +198,14 @@ Value evaluate(ASTNode *node, Environment *env) {
             env_set(env, node->value, val);
             return val;
         }
+        
+        case NODE_ASSIGN: {
+            Value val = evaluate(node->right, env);
+            env_set(env, node->value, val);
+            return val;
+        }
+
+
 
         case NODE_IF: {
             Value cond = evaluate(node->condition, env);

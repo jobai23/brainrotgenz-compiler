@@ -42,8 +42,8 @@ typedef enum {
     TOKEN_SLIDE,         /* function call        */
 
     /* keywords — input output */
-    TOKEN_SYABU,         /* printf               */
-    TOKEN_GUMIT,         /* scanf                */
+    TOKEN_SYBAU,         /* printf               */
+    TOKEN_GUMITTE,         /* scanf                */
 
     /* keywords — decision */
     TOKEN_YN,            /* if                   */
@@ -71,7 +71,7 @@ typedef enum {
     TOKEN_DIABOLICAL,    /* //                   */
 
     /* keywords — entry point */
-    TOKEN_PUT_THE_FIRES, /* main()               */
+    TOKEN_PUT_THE_FRIES, /* main()               */
 
     /* symbols */
     TOKEN_PLUS,          /* +                    */

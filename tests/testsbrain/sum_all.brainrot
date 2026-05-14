@@ -1,0 +1,24 @@
+diabolical sum of all even numbers from 2 to N
+
+cook "stdio"
+
+put the fires in the bag {
+
+    gooner jit n = 0;
+    gooner jit sum = 0;
+    gooner jit i = 2;
+
+    syabu "enter the upper limit:";
+    gumit n;
+
+    risky shoot i bugging n {
+        sum = sum + i;
+        fap i;
+        fap i;
+    }
+
+    syabu "sum of even numbers:";
+    syabu sum;
+
+    cooked 0;
+}

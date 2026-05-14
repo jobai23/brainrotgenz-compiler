@@ -50,8 +50,8 @@ static TokenType check_keyword(const char *word) {
     if (strcmp(word, "lit")         == 0) return TOKEN_LIT;
 
     /* input output */
-    if (strcmp(word, "syabu")       == 0) return TOKEN_SYABU;
-    if (strcmp(word, "gumit")       == 0) return TOKEN_GUMIT;
+    if (strcmp(word, "sybau")       == 0) return TOKEN_SYBAU;
+    if (strcmp(word, "gumitte")       == 0) return TOKEN_GUMITTE;
 
     /* decision */
     if (strcmp(word, "yn")          == 0) return TOKEN_YN;
@@ -205,12 +205,12 @@ Token *tokenize(const char *source, int *token_count) {
                 }
             }
 
-            /* put the fires in the bag */
+            /* put the fries in the bag */
             if (strcmp(word, "put") == 0) {
                 while (i < len && source[i] == ' ') i++;
-                if (strncmp(source + i, "the fires in the bag", 20) == 0) {
-                    i += 20;
-                    tokens[count++] = make_token(TOKEN_PUT_THE_FIRES, "put the fires in the bag", line);
+                if (strncmp(source + i, "the fries in the bag", 20) == 0) {
+    i += 20;
+    tokens[count++] = make_token(TOKEN_PUT_THE_FRIES, "put the fries in the bag", line);
                     free(word);
                     continue;
                 }

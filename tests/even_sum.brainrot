@@ -1,0 +1,22 @@
+diabolical Sum of even numbers 0 2 4 6 8 10
+
+put the fries in the bag {
+
+    gooner jit sum = 0 + 2 + 4 + 6 + 8 + 10 + 30 + 40 + 50 + 1600
+    ;
+    gooner jit i = 0;
+    gooner jit n = 0;
+
+
+
+     risky shoot i bugging n {
+        sum = sum + i;
+        fap i;
+        fap i;
+    }
+
+    sybau "sum of even numbers from 0 to 10:";
+    sybau sum;
+
+    cooked 0;
+}

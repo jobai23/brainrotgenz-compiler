@@ -1,0 +1,19 @@
+diabolical sum of even numbers using a loop
+
+put the fries in the bag {
+
+    gooner jit n = 1000;
+    gooner jit sum = 0;
+    gooner jit i = 200;
+
+    risky shoot i bugging n {
+        sum = sum + i;
+        fap i;
+        fap i;
+    }
+
+    sybau "sum of even numbers from 200 to 1000:";
+    sybau sum;
+
+    cooked 0;
+}

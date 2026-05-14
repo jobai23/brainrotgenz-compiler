@@ -721,7 +721,7 @@ cook bum checkScore(gooner score) {
 }
 
 diabolical program entry point
-put the fires in the bag {
+put the fries in the bag {
 
     slide printBanner();
 
@@ -734,10 +734,10 @@ put the fires in the bag {
 
     diabolical arithmetic
     gooner jit total = slide addBenjis(playerScore, bonus);
-    syabu total;
+    sybau total;
 
     double it and give it to the next total;
-    syabu total;
+    sybau total;
 
     diabolical decision
     slide checkScore(total);
@@ -745,13 +745,13 @@ put the fires in the bag {
     diabolical while loop
     gooner jit count = 0;
     risky shoot count L 3 {
-        syabu "grinding...";
+        sybau "grinding...";
         fap count;
     }
 
     diabolical for loop
     slide on em (gooner jit i = 0; i L 5; fap i) {
-        syabu i;
+        sybau i;
     }
 
     diabolical do while loop
@@ -761,7 +761,7 @@ put the fires in the bag {
         fap x;
     } risky shoot x L 3;
 
-    syabu "program done green";
+    sybau "program done green";
     cooked 0;
 }
 
